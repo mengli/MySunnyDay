@@ -1,31 +1,46 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
+<androidx.coordinatorlayout.widget.CoordinatorLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
-    <com.google.android.material.appbar.AppBarLayout
+    <FrameLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:theme="@style/Theme.MySunnyDay.AppBarOverlay">
+        android:layout_height="match_parent"
+        android:background="?attr/colorPrimary">
 
-        <androidx.appcompat.widget.Toolbar
-            android:id="@+id/toolbar"
+        <ImageView
+            android:id="@+id/background"
             android:layout_width="match_parent"
-            android:layout_height="?attr/actionBarSize"
-            android:background="?attr/colorPrimary"
-            app:popupTheme="@style/Theme.MySunnyDay.PopupOverlay">
-            <androidx.appcompat.widget.SearchView
+            android:layout_height="match_parent"
+            android:src="@drawable/ic_sunny_background"
+            android:scaleType="centerCrop"/>
+
+        <androidx.drawerlayout.widget.DrawerLayout
+            android:id="@+id/drawerLayout"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
+                android:id="@+id/swipeRefresh"
                 android:layout_width="match_parent"
-                android:layout_height="?attr/actionBarSize"
-                android:id="@+id/search_view">
-            </androidx.appcompat.widget.SearchView>
-        </androidx.appcompat.widget.Toolbar>
+                android:layout_height="match_parent"
+                android:fitsSystemWindows="true">
 
-    </com.google.android.material.appbar.AppBarLayout>
+                <include layout="@layout/content_main" />
 
-    <include layout="@layout/content_main" />
+            </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
 
+            <fragment
+                android:id="@+id/chooseAreaFragment"
+                android:name="com.limeng.mysunnyday.SecondFragment"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_gravity="start" />
+
+        </androidx.drawerlayout.widget.DrawerLayout>
+
+    </FrameLayout>
 </androidx.coordinatorlayout.widget.CoordinatorLayout>

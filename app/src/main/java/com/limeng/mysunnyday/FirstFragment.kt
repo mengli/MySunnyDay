@@ -40,13 +40,13 @@ class FirstFragment : Fragment() {
         //Custom bind indicator
         binding.indicator.highlighterViewDelegate = {
             val highlighter = View(requireContext())
-            highlighter.layoutParams = FrameLayout.LayoutParams(160, 20)
+            highlighter.layoutParams = FrameLayout.LayoutParams(20, 20)
             highlighter.setBackgroundColor(resources.getColor(R.color.white))
             highlighter
         }
         binding.indicator.unselectedViewDelegate = {
             val unselected = View(requireContext())
-            unselected.layoutParams = LinearLayout.LayoutParams(160, 20)
+            unselected.layoutParams = LinearLayout.LayoutParams(20, 20)
             unselected.setBackgroundColor(resources.getColor(R.color.white))
             unselected.alpha = 0.4f
             unselected
