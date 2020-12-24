@@ -5,8 +5,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.FrameLayout
-import android.widget.LinearLayout
+import com.google.android.material.tabs.TabLayoutMediator
 import com.limeng.mysunnyday.databinding.FragmentFirstBinding
 import com.limeng.mysunnyday.viewpager.WeatherDetailAdapter
 
@@ -22,8 +21,8 @@ class FirstFragment : Fragment() {
     private val binding get() = _binding!!
 
     override fun onCreateView(
-            inflater: LayoutInflater, container: ViewGroup?,
-            savedInstanceState: Bundle?
+        inflater: LayoutInflater, container: ViewGroup?,
+        savedInstanceState: Bundle?
     ): View? {
         _binding = FragmentFirstBinding.inflate(inflater, container, false)
         return binding.root
@@ -31,30 +30,8 @@ class FirstFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-
-        binding.viewpager.adapter = WeatherDetailAdapter(
-                requireContext(),
-                listOf("Santa Clara", "San Jose"),
-                true)
-
-        //Custom bind indicator
-        binding.indicator.highlighterViewDelegate = {
-            val highlighter = View(requireContext())
-            highlighter.layoutParams = FrameLayout.LayoutParams(20, 20)
-            highlighter.setBackgroundColor(resources.getColor(R.color.white))
-            highlighter
-        }
-        binding.indicator.unselectedViewDelegate = {
-            val unselected = View(requireContext())
-            unselected.layoutParams = LinearLayout.LayoutParams(20, 20)
-            unselected.setBackgroundColor(resources.getColor(R.color.white))
-            unselected.alpha = 0.4f
-            unselected
-        }
-        binding.viewpager.onIndicatorProgress = { selectingPosition, progress ->
-            binding.indicator.onPageScrolled(selectingPosition, progress)
-        }
-        binding.indicator.updateIndicatorCounts(binding.viewpager.indicatorCount)
+        binding.viewpager.adapter = WeatherDetailAdapter(this, listOf("Santa Clara", "San Jose"))
+        TabLayoutMediator(binding.indicator, binding.viewpager) { _, _ -> }.attach()
     }
 
     override fun onDestroyView() {

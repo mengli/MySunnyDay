@@ -1,32 +1,17 @@
 package com.limeng.mysunnyday.viewpager
 
-import android.content.Context
-import android.view.LayoutInflater
-import android.view.View
-import android.view.ViewGroup
-import com.asksira.loopingviewpager.LoopingPagerAdapter
-import com.limeng.mysunnyday.R
+import androidx.fragment.app.Fragment
+import androidx.viewpager2.adapter.FragmentStateAdapter
+import com.limeng.mysunnyday.WeatherContentFragment
 
 class WeatherDetailAdapter(
-        context: Context,
-        itemList: List<String>,
-        isInfinite: Boolean
-) : LoopingPagerAdapter<String>(context, itemList, isInfinite) {
+    fragment: Fragment,
+    private val listOfPagerContents: List<String>
+) : FragmentStateAdapter(fragment) {
 
-    //This method will be triggered if the item View has not been inflated before.
-    override fun inflateView(
-            viewType: Int,
-            container: ViewGroup,
-            listPosition: Int
-    ): View {
-        return LayoutInflater.from(context).inflate(R.layout.weather_item, container, false)
-    }
+    override fun getItemCount(): Int = listOfPagerContents.size
 
-    override fun bindView(
-            convertView: View,
-            listPosition: Int,
-            viewType: Int
-    ) {
-
+    override fun createFragment(position: Int): Fragment {
+        return WeatherContentFragment()
     }
 }
