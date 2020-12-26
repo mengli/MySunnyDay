@@ -7,7 +7,7 @@
 
     <fragment
         android:id="@+id/FirstFragment"
-        android:name="com.limeng.mysunnyday.FirstFragment"
+        android:name="com.limeng.mysunnyday.WeatherHostFragment"
         tools:layout="@layout/fragment_first">
 
         <action
@@ -16,7 +16,7 @@
     </fragment>
     <fragment
         android:id="@+id/SecondFragment"
-        android:name="com.limeng.mysunnyday.SecondFragment"
+        android:name="com.limeng.mysunnyday.WeatherListFragment"
         tools:layout="@layout/fragment_second">
 
         <action

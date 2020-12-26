@@ -9,10 +9,8 @@ import com.google.android.material.tabs.TabLayoutMediator
 import com.limeng.mysunnyday.databinding.FragmentFirstBinding
 import com.limeng.mysunnyday.viewpager.WeatherDetailAdapter
 
-/**
- * A simple [Fragment] subclass as the default destination in the navigation.
- */
-class FirstFragment : Fragment() {
+/** A [Fragment] that hosts the weather details view pager. */
+class WeatherHostFragment : Fragment() {
 
     private var _binding: FragmentFirstBinding? = null
 
