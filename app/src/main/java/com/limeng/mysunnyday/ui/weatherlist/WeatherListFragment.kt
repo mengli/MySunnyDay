@@ -1,4 +1,4 @@
-package com.limeng.mysunnyday
+package com.limeng.mysunnyday.ui.weatherlist
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
@@ -6,14 +6,15 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.navigation.fragment.findNavController
-import com.limeng.mysunnyday.databinding.FragmentSecondBinding
+import com.limeng.mysunnyday.R
+import com.limeng.mysunnyday.databinding.FragmentWeatherListBinding
 
 /**
  * A simple [Fragment] subclass as the second destination in the navigation.
  */
 class WeatherListFragment : Fragment() {
 
-    private var _binding: FragmentSecondBinding? = null
+    private var _binding: FragmentWeatherListBinding? = null
 
     // This property is only valid between onCreateView and
     // onDestroyView.
@@ -24,7 +25,7 @@ class WeatherListFragment : Fragment() {
             savedInstanceState: Bundle?
     ): View? {
 
-        _binding = FragmentSecondBinding.inflate(inflater, container, false)
+        _binding = FragmentWeatherListBinding.inflate(inflater, container, false)
         return binding.root
 
     }

@@ -2,7 +2,7 @@ package com.limeng.mysunnyday.viewpager
 
 import androidx.fragment.app.Fragment
 import androidx.viewpager2.adapter.FragmentStateAdapter
-import com.limeng.mysunnyday.WeatherContentFragment
+import com.limeng.mysunnyday.ui.weathercontent.WeatherContentFragment
 
 class WeatherDetailAdapter(
     fragment: Fragment,
